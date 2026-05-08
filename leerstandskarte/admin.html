@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leerstände – Verwaltung (Prototyp)</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="site-nav-link" href="index.html">← Zur Karte</a>
+    </div>
+    <div class="site-header__inner">
+      <h1 class="site-title">Leerstände verwalten</h1>
+      <p class="site-lead">
+        Prototyp: Einträge können in der Übersicht <strong>pro Sitzung</strong> zwischengespeichert werden; nach einem <strong>Neuladen</strong> gelten wieder nur die Daten aus der Datei.
+      </p>
+    </div>
+  </header>
+
+  <main id="main-content" class="main">
+    <nav class="tabs" role="tablist" aria-label="Bereiche">
+      <button type="button" class="tabs__btn is-active" role="tab" aria-selected="true" aria-controls="panel-uebersicht" id="tab-uebersicht" data-tab="uebersicht">
+        Übersicht
+      </button>
+      <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="panel-neu" id="tab-neu" data-tab="neu" tabindex="-1">
+        Neuer Eintrag
+      </button>
+      <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="panel-csv" id="tab-csv" data-tab="csv" tabindex="-1">
+        CSV-Import
+      </button>
+    </nav>
+
+    <div class="panel-wrap">
+      <section id="panel-uebersicht" class="panel is-visible" role="tabpanel" aria-labelledby="tab-uebersicht">
+        <div id="load-error" class="banner banner--error is-hidden" role="alert"></div>
+        <div id="save-success-banner" class="banner banner--success is-hidden" role="status" aria-live="polite"></div>
+        <div class="card">
+          <h2 class="card__title">Alle Einträge</h2>
+          <p class="card__hint">Daten aus der Datei <code>data/leerstände.json</code>.</p>
+          <div class="table-wrap">
+            <table class="data-table" id="table-uebersicht">
+              <thead>
+                <tr>
+                  <th scope="col">Adresse</th>
+                  <th scope="col">Stadtteil</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Wohnungen</th>
+                  <th scope="col">Leer seit</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-uebersicht"></tbody>
+            </table>
+          </div>
+          <p class="empty-hint is-hidden" id="empty-uebersicht">Keine Einträge geladen.</p>
+        </div>
+      </section>
+
+      <section id="panel-neu" class="panel" role="tabpanel" aria-labelledby="tab-neu" hidden>
+        <div class="card">
+          <h2 class="card__title">Neuen Eintrag anlegen</h2>
+          <p class="card__hint">
+            Zuerst <strong>Vorschau anzeigen</strong>, Inhalt prüfen, danach <strong>Speichern</strong> (Demo: nur im Speicher dieses Tabs, siehe Hinweis unten).
+          </p>
+          <p class="form-tour-bar">
+            <button type="button" class="btn btn--secondary" id="btn-tour-start" aria-label="Geführte Anleitung starten">
+              📖 Anleitung
+            </button>
+          </p>
+
+          <form id="form-neu" class="form" novalidate>
+            <div class="form__row">
+              <label for="neu-adresse">Adresse <span class="req">*</span></label>
+              <div class="form__field">
+                <input type="text" id="neu-adresse" name="adresse" autocomplete="street-address" />
+                <p class="field-error is-hidden" id="err-neu-adresse" aria-live="polite"></p>
+              </div>
+              <button type="button" class="btn btn--secondary" id="btn-geocode" aria-label="Koordinaten automatisch ermitteln">
+                📍 Koordinaten automatisch ermitteln
+              </button>
+              <p class="field-error is-hidden" id="geocode-status" aria-live="polite"></p>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-ort">Ort</label>
+              <div class="form__field">
+                <input type="text" id="neu-ort" name="ort" value="Schwäbisch Gmünd" />
+                <p class="field-error is-hidden" id="err-neu-ort"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-stadtteil">Stadtteil <span class="req">*</span></label>
+              <div class="form__field">
+                <select id="neu-stadtteil" name="stadtteil">
+                  <option value="">Bitte wählen</option>
+                </select>
+                <p class="field-error is-hidden" id="err-neu-stadtteil"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-status">Status <span class="req">*</span></label>
+              <div class="form__field">
+                <select id="neu-status" name="status">
+                  <option value="">Bitte wählen</option>
+                  <option value="leer">Komplett leer</option>
+                  <option value="teilweise">Teilweise leer</option>
+                  <option value="sanierung">In Sanierung</option>
+                </select>
+                <p class="field-error is-hidden" id="err-neu-status"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-we">Anzahl Wohneinheiten <span class="req">*</span></label>
+              <div class="form__field">
+                <input type="number" id="neu-we" name="wohneinheiten" min="1" step="1" inputmode="numeric" />
+                <p class="field-error is-hidden" id="err-neu-we"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-leer-seit">Leer seit (Jahr-Monat)</label>
+              <div class="form__field">
+                <input type="text" id="neu-leer-seit" name="leer_seit" placeholder="z. B. 2024-03" />
+                <p class="field-error is-hidden" id="err-neu-leer-seit"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-lat">Breitengrad</label>
+              <div class="form__field">
+                <input type="text" id="neu-lat" name="lat" inputmode="decimal" placeholder="z. B. 48,7994" />
+                <p class="field-error is-hidden" id="err-neu-lat"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-lng">Längengrad</label>
+              <div class="form__field">
+                <input type="text" id="neu-lng" name="lng" inputmode="decimal" placeholder="z. B. 9,7978" />
+                <p class="field-error is-hidden" id="err-neu-lng"></p>
+              </div>
+            </div>
+
+            <div class="form__row form__row--simple">
+              <label for="neu-notiz">Notiz</label>
+              <div class="form__field">
+                <textarea id="neu-notiz" name="notiz" rows="4"></textarea>
+                <p class="field-error is-hidden" id="err-neu-notiz"></p>
+              </div>
+            </div>
+
+            <div class="form__actions form__actions--split">
+              <button type="button" class="btn btn--primary" id="btn-preview">
+                Vorschau anzeigen
+              </button>
+              <button type="button" class="btn btn--primary" id="btn-save-neu" disabled aria-disabled="true" aria-label="Eintrag speichern">
+                💾 Speichern
+              </button>
+            </div>
+            <p class="form-actions-hint">
+              Demo-Modus: Daten werden nach Seiten-Reload zurückgesetzt. In der finalen Version werden sie dauerhaft gespeichert.
+            </p>
+          </form>
+
+          <div id="neu-result" class="result-box is-hidden" aria-live="polite">
+            <h3 class="result-box__title">So würde der Eintrag aussehen</h3>
+            <p class="result-box__note">
+              Die Nummer (<code>id</code>) wird beim Speichern vergeben (siehe JSON).
+            </p>
+            <pre class="result-box__json" id="neu-json"></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-csv" class="panel" role="tabpanel" aria-labelledby="tab-csv" hidden>
+        <div class="card">
+          <h2 class="card__title">CSV-Datei einlesen</h2>
+          <p class="card__hint">
+            Wählen Sie eine Textdatei oder fügen Sie Zeilen unten ein. Es wird nur eine <strong>Vorschau</strong> erstellt, nichts wird gespeichert.
+          </p>
+          <p class="card__hint">
+            Erwartete Spaltenüberschriften (mit Semikolon oder Komma getrennt):
+            <code>adresse</code>, <code>ort</code>, <code>stadtteil</code>, <code>status</code>,
+            <code>wohneinheiten</code>, <code>leer_seit</code>, <code>notiz</code>, <code>lat</code>, <code>lng</code>.
+            Bei <code>status</code> sind zulässig: <code>leer</code>, <code>teilweise</code>, <code>sanierung</code> oder die gleichen Bezeichnungen wie im Formular.
+          </p>
+
+          <div class="form__row form__row--simple">
+            <label for="csv-file">Datei wählen</label>
+            <input type="file" id="csv-file" accept=".csv,.txt,text/csv" />
+          </div>
+
+          <div class="form__row form__row--simple">
+            <label for="csv-text">Oder Text hier einfügen</label>
+            <textarea id="csv-text" class="csv-textarea" rows="8" placeholder="adresse;ort;stadtteil;..."></textarea>
+          </div>
+
+          <div class="form__actions">
+            <button type="button" class="btn btn--primary" id="btn-csv-parse">Vorschau erzeugen</button>
+          </div>
+
+          <div id="csv-result" class="is-hidden">
+            <h3 class="result-box__title">Auswertung</h3>
+            <p id="csv-summary" class="csv-summary"></p>
+            <div class="table-wrap">
+              <table class="data-table" id="table-csv-preview">
+                <thead>
+                  <tr>
+                    <th scope="col">Zeile</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Hinweis</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-csv"></tbody>
+              </table>
+            </div>
+            <div class="form__actions form__actions--csv-import">
+              <button
+                type="button"
+                class="btn btn--primary"
+                id="btn-csv-import-all"
+                disabled
+                aria-disabled="true"
+                aria-label="Alle gültigen Zeilen aus der Vorschau übernehmen"
+              >
+                ✅ Alle importieren
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Prototyp · keine Anmeldung · Speichern nur bis zum Seiten-Reload (Demo)</p>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+</html>

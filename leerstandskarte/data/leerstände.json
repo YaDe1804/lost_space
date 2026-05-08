@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "adresse": "Beispielstraße 17",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Innenstadt",
+    "status": "leer",
+    "wohneinheiten": 4,
+    "leer_seit": "2022-03",
+    "notiz": "Erdgeschoss seit Eigentümerwechsel ungenutzt",
+    "lat": 48.8001,
+    "lng": 9.7982
+  },
+  {
+    "id": 2,
+    "adresse": "Marktplatz 4",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Innenstadt",
+    "status": "teilweise",
+    "wohneinheiten": 8,
+    "leer_seit": "2023-11",
+    "notiz": "Zwei der vier Obergeschosse vermietet",
+    "lat": 48.7985,
+    "lng": 9.7968
+  },
+  {
+    "id": 3,
+    "adresse": "Johannesstraße 22",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Lorcher Vorstadt",
+    "status": "sanierung",
+    "wohneinheiten": 12,
+    "leer_seit": "2024-06",
+    "notiz": "Fassade und Dach, Wiedervermietung ab Q3",
+    "lat": 48.8012,
+    "lng": 9.7955
+  },
+  {
+    "id": 4,
+    "adresse": "Kornhausgasse 3",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Innenstadt",
+    "status": "leer",
+    "wohneinheiten": 2,
+    "leer_seit": "2021-08",
+    "notiz": "Komplett leerstehend, Bauzustand prüfen",
+    "lat": 48.7978,
+    "lng": 9.7995
+  },
+  {
+    "id": 5,
+    "adresse": "Kesselstraße 41",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Östlicher Stadtteil",
+    "status": "teilweise",
+    "wohneinheiten": 6,
+    "leer_seit": "2024-01",
+    "notiz": "Nur Dachgeschoss frei, Mieterwechsel angekündigt",
+    "lat": 48.802,
+    "lng": 9.801
+  },
+  {
+    "id": 6,
+    "adresse": "Pfarrgasse 9",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Innenstadt",
+    "status": "sanierung",
+    "wohneinheiten": 5,
+    "leer_seit": "2024-09",
+    "notiz": "Elektrik und Fenster, vorübergehend unbewohnbar",
+    "lat": 48.799,
+    "lng": 9.794
+  },
+  {
+    "id": 7,
+    "adresse": "Ledergasse 14",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Innenstadt",
+    "status": "leer",
+    "wohneinheiten": 3,
+    "leer_seit": "2023-04",
+    "notiz": "Leerstand seit Insolvenz Vermieter",
+    "lat": 48.8006,
+    "lng": 9.7972
+  },
+  {
+    "id": 8,
+    "adresse": "Bahnhofstraße 28",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Weststadt",
+    "status": "teilweise",
+    "wohneinheiten": 10,
+    "leer_seit": "2022-12",
+    "notiz": "Erdgeschoss Gewerbe leer, Wohnungen teils vermietet",
+    "lat": 48.7965,
+    "lng": 9.8008
+  },
+  {
+    "id": 9,
+    "adresse": "Rosenbühlweg 7",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Bettringen",
+    "status": "sanierung",
+    "wohneinheiten": 7,
+    "leer_seit": "2025-02",
+    "notiz": "Asbestabbau abgeschlossen, Innenausbau folgt",
+    "lat": 48.8035,
+    "lng": 9.7962
+  },
+  {
+    "id": 10,
+    "adresse": "Spitalstraße 11",
+    "ort": "Schwäbisch Gmünd",
+    "stadtteil": "Lorcher Vorstadt",
+    "status": "leer",
+    "wohneinheiten": 1,
+    "leer_seit": "2024-05",
+    "notiz": "Kleines Souterrain, kein Interessent bisher",
+    "lat": 48.7982,
+    "lng": 9.7935
+  }
+]

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leerstandskarte Schwäbisch Gmünd</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Statistiken und Objektliste">
+    <header class="sidebar__head">
+      <h1>Leerstände</h1>
+      <p class="sidebar__sub">Schwäbisch Gmünd</p>
+    </header>
+    <section class="stats" aria-live="polite">
+      <h2 class="stats__title">Übersicht</h2>
+      <p class="stats__total"><strong>Gesamt:</strong> <span id="stat-total">0</span></p>
+      <ul class="stats__breakdown" id="stat-breakdown"></ul>
+    </section>
+    <section class="filter-block" aria-label="Filter nach Stadtteil">
+      <label class="filter-block__label" for="filter-stadtteil">Stadtteil</label>
+      <select class="filter-block__select" id="filter-stadtteil" name="stadtteil">
+        <option value="">Alle Stadtteile</option>
+      </select>
+    </section>
+    <section class="list-section">
+      <h2 class="list-section__title">Objekte</h2>
+      <ul class="object-list" id="object-list"></ul>
+    </section>
+  </aside>
+  <main class="map-wrap">
+    <a class="map-admin-link" href="admin.html">Admin</a>
+    <div id="map" role="application" aria-label="Karte Leerstände"></div>
+    <div class="legend" role="group" aria-label="Legende">
+      <strong class="legend__title">Legende</strong>
+      <ul class="legend__items">
+        <li><span class="legend__dot legend__dot--leer"></span> Komplett leer</li>
+        <li><span class="legend__dot legend__dot--teilweise"></span> Teilweise leer</li>
+        <li><span class="legend__dot legend__dot--sanierung"></span> In Sanierung</li>
+      </ul>
+    </div>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
