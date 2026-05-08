@@ -1,6 +1,6 @@
-# Leerstandskataster Schwäbisch Gmünd
+# Leerstandskataster
 
-Der **Leerstandskataster** ist eine einfache Webkarte zur Darstellung von Leerständen in Schwäbisch Gmünd. Er dient als **Werkzeug für kommunalpolitische Arbeit**: Übersicht schaffen, Fakten sichtbar machen und Gespräche mit Verwaltung, Stadtpolitik und Öffentlichkeit vorbereiten.
+Der **Leerstandskataster** ist eine einfache Webkarte zur Darstellung von Leerständen – **anpassbar für jede Gemeinde, Stadt oder Region**. Er dient als **Werkzeug für kommunalpolitische Arbeit**: Übersicht schaffen, Fakten sichtbar machen und Gespräche mit Verwaltung, Lokalpolitik und Öffentlichkeit vorbereiten. Ort, Kartenausschnitt und Objektdaten konfiguriert und pflegt ihr in den Projektdateien (u. a. `app.js`, `data/leerstände.json`).
 
 ## Lizenz & Nutzung
 

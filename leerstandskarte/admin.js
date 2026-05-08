@@ -5,6 +5,9 @@
 
   var DATA_URL = "data/leerstände.json";
 
+  /** Standard-Ort für leeres Formularfeld, fehlende CSV-Spalte „ort“ und Geocoding – an eure Kommune anpassen. */
+  var DEFAULT_ORT = "Musterstadt";
+
   var STATUS_ANZEIGE = {
     leer: "Komplett leer",
     teilweise: "Teilweise leer",
@@ -611,7 +614,7 @@
       ort:
         o.ort != null && String(o.ort).trim() !== ""
           ? String(o.ort).trim()
-          : "Schwäbisch Gmünd",
+          : DEFAULT_ORT,
       stadtteil: (o.stadtteil || "").trim(),
       status: check.statusNorm,
       wohneinheiten: parseInt(o.wohneinheiten, 10),
@@ -666,7 +669,7 @@
       var ort =
         (row.obj.ort != null && String(row.obj.ort).trim() !== ""
           ? String(row.obj.ort).trim()
-          : "Schwäbisch Gmünd");
+          : DEFAULT_ORT);
       var res = await geocodeAdresse(row.obj.adresse, ort);
       if (res.ok) {
         row.obj.lat = formatCoordDe(res.lat);
@@ -877,7 +880,7 @@
       selector: "#neu-ort",
       title: "Ort",
       body: "Die Stadt oder Gemeinde.",
-      example: "Schwäbisch Gmünd",
+      example: DEFAULT_ORT,
     },
     {
       selector: "#neu-stadtteil",

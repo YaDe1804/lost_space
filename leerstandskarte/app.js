@@ -3,8 +3,12 @@
 
   const DEBUG = false;
 
+  /** Kartenzentrum [Breite, Länge] – an euren Ort anpassen. */
   var CENTER = [48.7994, 9.7978];
   var ZOOM = 14;
+
+  /** Anzeige in Popups, wenn „ort“ im Datensatz fehlt. */
+  var ORT_FALLBACK = "–";
 
   var STATUS = {
     leer: { color: "#c62828", label: "Komplett leer" },
@@ -123,7 +127,7 @@
       '<div class="popup-addr">' +
       escapeHtml(item.adresse) +
       ", " +
-      escapeHtml(item.ort || "Schwäbisch Gmünd") +
+      escapeHtml(item.ort || ORT_FALLBACK) +
       "</div>" +
       (item.stadtteil
         ? '<p class="popup-row"><strong>Stadtteil:</strong> ' +

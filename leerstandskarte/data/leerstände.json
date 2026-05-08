@@ -2,7 +2,7 @@
   {
     "id": 1,
     "adresse": "Beispielstraße 17",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Innenstadt",
     "status": "leer",
     "wohneinheiten": 4,
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "adresse": "Marktplatz 4",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Innenstadt",
     "status": "teilweise",
     "wohneinheiten": 8,
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "adresse": "Johannesstraße 22",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Lorcher Vorstadt",
     "status": "sanierung",
     "wohneinheiten": 12,
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "adresse": "Kornhausgasse 3",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Innenstadt",
     "status": "leer",
     "wohneinheiten": 2,
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "adresse": "Kesselstraße 41",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Östlicher Stadtteil",
     "status": "teilweise",
     "wohneinheiten": 6,
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "adresse": "Pfarrgasse 9",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Innenstadt",
     "status": "sanierung",
     "wohneinheiten": 5,
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "adresse": "Ledergasse 14",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Innenstadt",
     "status": "leer",
     "wohneinheiten": 3,
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "adresse": "Bahnhofstraße 28",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Weststadt",
     "status": "teilweise",
     "wohneinheiten": 10,
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "adresse": "Rosenbühlweg 7",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Bettringen",
     "status": "sanierung",
     "wohneinheiten": 7,
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "adresse": "Spitalstraße 11",
-    "ort": "Schwäbisch Gmünd",
+    "ort": "Musterstadt",
     "stadtteil": "Lorcher Vorstadt",
     "status": "leer",
     "wohneinheiten": 1,

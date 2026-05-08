@@ -6,7 +6,7 @@
 
 ## Phase 1 – Prototyp (jetzt)
 
-- Kartenansicht zentriert auf Schwäbisch Gmünd
+- Kartenansicht: Startzentrum (`CENTER` in `app.js`) auf den eigenen Ort setzen
 - Marker nach **Status** (farbcodiert)
 - **Popup** mit Adresse, Status, Wohneinheiten, Notiz
 - **Sidebar** mit Statistiken und Objektliste (Klick zentriert die Karte)

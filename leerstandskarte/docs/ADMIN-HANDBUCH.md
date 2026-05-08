@@ -29,7 +29,7 @@ Echte **Adressen von Leerständen** sind **keine personenbezogenen Daten** im Si
 {
   "id": 11,
   "adresse": "Musterweg 5",
-  "ort": "Schwäbisch Gmünd",
+  "ort": "Musterstadt",
   "stadtteil": "Innenstadt",
   "status": "leer",
   "wohneinheiten": 2,
